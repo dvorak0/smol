@@ -1,4 +1,13 @@
 <header>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?41e2e31fcfdb815d942715d44866f9fc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}<br>
 	== <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> ==<br>
 	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}
