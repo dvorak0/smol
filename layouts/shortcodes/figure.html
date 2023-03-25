@@ -1,0 +1,17 @@
+<figure>
+  {{ $imagesrc := index .Params "src" }}
+
+  {{ $image := resources.Get $imagesrc }}
+  {{ $resized := $image }}
+
+  {{ $gif := eq (lower (substr $imagesrc -3)) "gif" }}
+  {{ if not $gif }}
+    {{ $resized = $image.Resize (printf "%dx%d webp" $image.Width $image.Height) }}
+  {{ end }}
+  <img src="{{ $resized.RelPermalink }}">
+
+  {{ if .Get "caption" }}
+    <figcaption>{{ index .Params "caption" | safeHTML}}</figcaption>
+  {{ end }}
+</figure>
+
