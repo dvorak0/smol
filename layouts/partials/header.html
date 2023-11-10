@@ -9,12 +9,14 @@
     })();
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHXS14NDHV"></script>
     <script>
-    window.ga_tid = "G-JHXS14NDHV"; // {String} The trackerID of your site.
-    window.ga_api = "https://hello-world-sweet-snowflake-0972.yangzhenfei0.workers.dev/"
-    // {String} The route of your cloudflare workers you just registered before.
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.3" async>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JHXS14NDHV');
     </script>
 
 	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}<br>
