@@ -8,6 +8,15 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
+
+    <script>
+    window.ga_tid = "G-JHXS14NDHV"; // {String} The trackerID of your site.
+    window.ga_api = "https://hello-world-sweet-snowflake-0972.yangzhenfei0.workers.dev/"
+    // {String} The route of your cloudflare workers you just registered before.
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.3" async>
+    </script>
+
 	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}<br>
 	== <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> ==<br>
 	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}
