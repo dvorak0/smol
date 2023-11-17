@@ -8,7 +8,7 @@
   {{ if not $gif }}
     {{ $resized = $image.Resize (printf "%dx%d webp" $image.Width $image.Height) }}
   {{ end }}
-  <img src="{{ $resized.RelPermalink }}">
+  <img src="{{ $resized.RelPermalink }}" height="{{ $resized.Height }}" width="{{ $resized.Width }}">
 
   {{ if .Get "caption" }}
     <figcaption>{{ index .Params "caption" | safeHTML}}</figcaption>
