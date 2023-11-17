@@ -6,7 +6,7 @@
 
   {{ $gif := eq (lower (substr $imagesrc -3)) "gif" }}
   {{ if not $gif }}
-    {{ $resized = $image.Resize (printf "%dx%d webp" $image.Width $image.Height) }}
+    {{ $resized = $image.Resize (printf "%dx webp" 1280) }}
   {{ end }}
   <img src="{{ $resized.RelPermalink }}" height="{{ $resized.Height }}" width="{{ $resized.Width }}">
 
