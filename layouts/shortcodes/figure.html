@@ -5,10 +5,19 @@
   {{ $resized := $image }}
 
   {{ $gif := eq (lower (substr $imagesrc -3)) "gif" }}
-  {{ if not $gif }}
+  {{ $svg := eq (lower (substr $imagesrc -3)) "svg" }}
+  {{ if and (not $gif) (not $svg) }}
     {{ $resized = $image.Resize (printf "%dx webp" 1280) }}
+    <img src="{{ $resized.RelPermalink }}" height="{{ $resized.Height }}" width="{{ $resized.Width }}">
   {{ end }}
-  <img src="{{ $resized.RelPermalink }}" height="{{ $resized.Height }}" width="{{ $resized.Width }}">
+
+  {{ if $svg }}
+    <img src="{{ $resized.RelPermalink }}">
+    {{ $href := (.Get "href") | default $image.RelPermalink }}
+    <figcaption>
+      <a href="{{ $href | safeURL }}" target="_blank" rel="noopener noreferrer">interactive</a>
+    </figcaption>
+  {{ end }}
 
   {{ if .Get "caption" }}
     <figcaption>{{ index .Params "caption" | safeHTML}}</figcaption>
