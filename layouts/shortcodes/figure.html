@@ -11,9 +11,9 @@
     <img src="{{ $resized.RelPermalink }}" height="{{ $resized.Height }}" width="{{ $resized.Width }}">
   {{ end }}
 
+  {{ $href := (.Get "href") | default $image.RelPermalink }}
   {{ if $svg }}
     <img src="{{ $resized.RelPermalink }}">
-    {{ $href := (.Get "href") | default $image.RelPermalink }}
     <figcaption>
       <a href="{{ $href | safeURL }}" target="_blank" rel="noopener noreferrer">interactive</a>
     </figcaption>
